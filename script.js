@@ -251,12 +251,10 @@ function preloadHeroImages() {
         const optimizedUrl = buildCloudinaryUrl(path, { w: 1920, dpr: true });
         img.src = optimizedUrl;
         img.onload = () => {
-            // Set background image once loaded (for both main and blurred background)
+            // Set background image once loaded
             const slide = document.querySelector(`.hero-slide-${index + 1}`);
             if (slide) {
                 slide.style.backgroundImage = `url('${optimizedUrl}')`;
-                // Set same image for blurred background layer (::before pseudo-element)
-                slide.setAttribute('data-bg-url', optimizedUrl);
             }
         };
     });

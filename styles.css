@@ -259,32 +259,9 @@ h1, h2, h3, h4, h5, h6 {
     transition: opacity 1.2s ease-in-out;
 }
 
-/* Blurred background layer for mobile (same image, blurred) */
-.hero-slide::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: inherit;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    filter: blur(20px);
-    transform: scale(1.1);
-    opacity: 0;
-    z-index: -1;
-    transition: opacity 1.2s ease-in-out;
-}
-
 .hero-slide.active {
     opacity: 1;
     z-index: 1;
-}
-
-.hero-slide.active::before {
-    opacity: 1;
 }
 
 .hero-overlay {
@@ -293,7 +270,7 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(26, 26, 26, 0.7) 0%, rgba(10, 77, 104, 0.5) 100%);
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.6) 0%, rgba(10, 77, 104, 0.4) 100%);
     z-index: 1;
 }
 
@@ -1069,21 +1046,10 @@ section {
         padding: 0 1.5rem;
     }
 
-    /* Hero: Mobile - Show full image with blurred background */
+    /* Hero: Mobile - Adjust background position for better framing */
     .hero-slide {
-        background-size: contain;
-        background-position: center;
-    }
-    
-    /* Blurred background layer always visible on mobile to fill empty space */
-    .hero-slide::before {
-        opacity: 1;
         background-size: cover;
-        background-position: center;
-    }
-    
-    .hero-slide.active::before {
-        opacity: 1;
+        background-position: center 35%;
     }
 
     .hero-title {
