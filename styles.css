@@ -259,9 +259,32 @@ h1, h2, h3, h4, h5, h6 {
     transition: opacity 1.2s ease-in-out;
 }
 
+/* Blurred background layer for mobile (same image, blurred) */
+.hero-slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: inherit;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(20px);
+    transform: scale(1.1);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 1.2s ease-in-out;
+}
+
 .hero-slide.active {
     opacity: 1;
     z-index: 1;
+}
+
+.hero-slide.active::before {
+    opacity: 1;
 }
 
 .hero-overlay {
@@ -543,6 +566,7 @@ section {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     will-change: transform;
     transition: transform 0.3s ease;
 }
@@ -979,9 +1003,10 @@ section {
 }
 
 .lightbox img {
-    max-width: 90%;
-    max-height: 90%;
+    max-width: 92vw;
+    max-height: 80vh;
     object-fit: contain;
+    object-position: center;
     border-radius: 10px;
     box-shadow: var(--shadow-lg);
 }
@@ -1044,6 +1069,23 @@ section {
         padding: 0 1.5rem;
     }
 
+    /* Hero: Mobile - Show full image with blurred background */
+    .hero-slide {
+        background-size: contain;
+        background-position: center;
+    }
+    
+    /* Blurred background layer always visible on mobile to fill empty space */
+    .hero-slide::before {
+        opacity: 1;
+        background-size: cover;
+        background-position: center;
+    }
+    
+    .hero-slide.active::before {
+        opacity: 1;
+    }
+
     .hero-title {
         font-size: 3rem;
     }
@@ -1060,6 +1102,17 @@ section {
     .btn {
         width: 100%;
         max-width: 300px;
+    }
+    
+    /* Gallery: Mobile - Show full images without cropping */
+    .gallery-item img {
+        object-fit: contain;
+        object-position: center;
+        background-color: var(--primary-light);
+    }
+    
+    .gallery-item {
+        aspect-ratio: 4/3;
     }
 
     .nav-menu {
@@ -1191,5 +1244,11 @@ section {
     .floating-whatsapp svg {
         width: 24px;
         height: 24px;
+    }
+    
+    /* Lightbox: Ensure images are fully visible on small mobile */
+    .lightbox img {
+        max-width: 95vw;
+        max-height: 75vh;
     }
 }

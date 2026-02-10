@@ -248,12 +248,15 @@ function switchLanguage(lang) {
 function preloadHeroImages() {
     HERO_IMAGES.forEach((path, index) => {
         const img = new Image();
-        img.src = buildCloudinaryUrl(path, { w: 1920, dpr: true });
+        const optimizedUrl = buildCloudinaryUrl(path, { w: 1920, dpr: true });
+        img.src = optimizedUrl;
         img.onload = () => {
-            // Set background image once loaded
+            // Set background image once loaded (for both main and blurred background)
             const slide = document.querySelector(`.hero-slide-${index + 1}`);
             if (slide) {
-                slide.style.backgroundImage = `url('${img.src}')`;
+                slide.style.backgroundImage = `url('${optimizedUrl}')`;
+                // Set same image for blurred background layer (::before pseudo-element)
+                slide.setAttribute('data-bg-url', optimizedUrl);
             }
         };
     });
@@ -289,7 +292,8 @@ function initHeroRotation() {
     // Set initial slide background
     const firstSlide = document.querySelector('.hero-slide-1');
     if (firstSlide && !firstSlide.style.backgroundImage) {
-        firstSlide.style.backgroundImage = `url('${buildCloudinaryUrl(HERO_IMAGES[0], { w: 1920, dpr: true })}')`;
+        const firstUrl = buildCloudinaryUrl(HERO_IMAGES[0], { w: 1920, dpr: true });
+        firstSlide.style.backgroundImage = `url('${firstUrl}')`;
     }
     
     // Auto-rotate every 3 seconds
