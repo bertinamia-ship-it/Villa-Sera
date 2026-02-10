@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Villa Sera - Luxury vacation rental in Cabo San Lucas, Mexico. Experience premium accommodations in the exclusive Villa Serena community.">
+    <meta name="keywords" content="Cabo San Lucas, luxury rental, vacation villa, Villa Sera, Mexico vacation">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Villa Sera - Luxury Vacation Rental | Cabo San Lucas">
+    <meta property="og:description" content="Experience luxury in Cabo San Lucas at Villa Sera. Premium accommodations in the exclusive Villa Serena community.">
+    <meta property="og:image" content="https://res.cloudinary.com/dpmozdkfh/image/upload/f_auto,q_auto/v1770690187/exterior_1_lryo0k.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Villa Sera - Luxury Vacation Rental | Cabo San Lucas">
+    <meta property="twitter:description" content="Experience luxury in Cabo San Lucas at Villa Sera. Premium accommodations in the exclusive Villa Serena community.">
+    <meta property="twitter:image" content="https://res.cloudinary.com/dpmozdkfh/image/upload/f_auto,q_auto/v1770690187/exterior_1_lryo0k.jpg">
+    
+    <title>Villa Sera - Luxury Vacation Rental | Cabo San Lucas, Mexico</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="https://res.cloudinary.com/dpmozdkfh/image/upload/f_auto,q_auto/v1770690187/exterior_1_lryo0k.jpg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo" data-translate="nav.logo">Villa Sera</a>
+            <ul class="nav-menu">
+                <li><a href="#about" data-translate="nav.about">About</a></li>
+                <li><a href="#gallery" data-translate="nav.gallery">Gallery</a></li>
+                <li><a href="#services" data-translate="nav.services">Services</a></li>
+                <li><a href="#booking" data-translate="nav.booking">Booking</a></li>
+                <li><a href="#location" data-translate="nav.location">Location</a></li>
+                <li><a href="#reviews" data-translate="nav.reviews">Reviews</a></li>
+            </ul>
+            <div class="nav-right">
+                <div class="language-toggle">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="es">ES</button>
+                </div>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-slides">
+            <div class="hero-slide active" style="background-image: url('https://res.cloudinary.com/dpmozdkfh/image/upload/f_auto,q_auto/v1770690187/exterior_1_lryo0k.jpg')"></div>
+            <div class="hero-slide" style="background-image: url('https://res.cloudinary.com/dpmozdkfh/image/upload/f_auto,q_auto/v1770690187/CasaSergio238_tlx1uh.jpg')"></div>
+            <div class="hero-slide" style="background-image: url('https://res.cloudinary.com/dpmozdkfh/image/upload/f_auto,q_auto/v1770690187/CasaSergio126_sgbiua.jpg')"></div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title" data-translate="hero.title">Villa Sera</h1>
+            <p class="hero-subtitle" data-translate="hero.subtitle">Luxury Redefined in Cabo San Lucas</p>
+            <p class="hero-location" data-translate="hero.location">Villa Serena Community</p>
+            <div class="hero-buttons">
+                <a href="#booking" class="btn btn-primary" data-translate="hero.cta.primary">Check Availability</a>
+                <a href="https://wa.me/526242175935?text=Hi%20Villa%20Sera%20team!%20I'd%20love%20to%20check%20availability.%20My%20dates%20are%20____%20to%20____%20and%20we%20are%20____%20guests." class="btn btn-secondary" data-translate="hero.cta.secondary" target="_blank" rel="noopener noreferrer">Book via WhatsApp</a>
+            </div>
+            <div class="hero-contact">
+                <p data-translate="hero.contact">WhatsApp: +52 624 217 5935 | Email: villasera@seraholding.com</p>
+            </div>
+        </div>
+        <div class="hero-indicators">
+            <span class="indicator active" data-slide="0"></span>
+            <span class="indicator" data-slide="1"></span>
+            <span class="indicator" data-slide="2"></span>
+        </div>
+    </section>
+
+    <!-- About/Highlights Section -->
+    <section class="highlights" id="about">
+        <div class="container">
+            <h2 class="section-title" data-translate="highlights.title">Luxury Highlights</h2>
+            <div class="highlights-grid">
+                <div class="highlight-item">
+                    <svg class="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2 17L12 22L22 17" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2 12L12 17L22 12" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <h3 data-translate="highlights.beach.title">Beachfront Access</h3>
+                    <p data-translate="highlights.beach.desc">Private access to pristine beaches</p>
+                </div>
+                <div class="highlight-item">
+                    <svg class="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M3 12H21M3 6H21M3 18H21" stroke-linecap="round"/>
+                    </svg>
+                    <h3 data-translate="highlights.pool.title">Infinity Pool</h3>
+                    <p data-translate="highlights.pool.desc">Stunning ocean-view infinity pool</p>
+                </div>
+                <div class="highlight-item">
+                    <svg class="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2 17L12 22L22 17" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2 12L12 17L22 12" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <h3 data-translate="highlights.concierge.title">Concierge Service</h3>
+                    <p data-translate="highlights.concierge.desc">24/7 dedicated concierge support</p>
+                </div>
+                <div class="highlight-item">
+                    <svg class="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M5 12H19M12 5V19" stroke-linecap="round"/>
+                        <circle cx="12" cy="12" r="10"/>
+                    </svg>
+                    <h3 data-translate="highlights.transport.title">Airport Transfer</h3>
+                    <p data-translate="highlights.transport.desc">Complimentary airport transportation</p>
+                </div>
+                <div class="highlight-item">
+                    <svg class="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2 17L12 22L22 17" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <h3 data-translate="highlights.dining.title">Private Chef</h3>
+                    <p data-translate="highlights.dining.desc">Available upon request</p>
+                </div>
+                <div class="highlight-item">
+                    <svg class="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2 12L12 17L22 12" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <h3 data-translate="highlights.views.title">Ocean Views</h3>
+                    <p data-translate="highlights.views.desc">Panoramic views from every room</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title" data-translate="gallery.title">Gallery</h2>
+            <p class="section-subtitle" data-translate="gallery.subtitle">Experience the elegance of Villa Sera</p>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://res.cloudinary.com/dpmozdkfh/image/upload/f_auto,q_auto/v1770690261/master_room_1_jvjnau.jpg" alt="Master Suite" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-label">Master Suite</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://res.cloudinary.com/dpmozdkfh/image/upload/f_auto,q_auto/v1770690262/bedroom_2_lozwto.jpg" alt="Bedroom 2" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-label">Bedroom 2</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://res.cloudinary.com/dpmozdkfh/image/upload/f_auto,q_auto/v1770690263/bedroom3_f4fvh8.jpg" alt="Bedroom 3" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-label">Bedroom 3</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://res.cloudinary.com/dpmozdkfh/image/upload/f_auto,q_auto/v1770690264/bedroom_4_wdr9hq.jpg" alt="Bedroom 4" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-label">Bedroom 4</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://res.cloudinary.com/dpmozdkfh/image/upload/f_auto,q_auto/v1770690261/diningroom1_hkoyi9.jpg" alt="Dining Room" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-label">Dining Room</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://res.cloudinary.com/dpmozdkfh/image/upload/f_auto,q_auto/v1770690187/CasaSergio238_tlx1uh.jpg" alt="Dining Room" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-label">Dining Area</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://res.cloudinary.com/dpmozdkfh/image/upload/f_auto,q_auto/v1770690264/bathroom1_qnezwl.jpg" alt="Primary Bath" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-label">Primary Bath</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://res.cloudinary.com/dpmozdkfh/image/upload/f_auto,q_auto/v1770690263/bathroom_2_zhl3mr.jpg" alt="Bathroom" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-label">Bathroom</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://res.cloudinary.com/dpmozdkfh/image/upload/f_auto,q_auto/v1770690264/closet1_fkpumz.jpg" alt="Walk-in Closet" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-label">Walk-in Closet</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title" data-translate="services.title">Premium Services</h2>
+            <p class="section-subtitle" data-translate="services.subtitle">Elevate your stay with our concierge services</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">✈️</div>
+                    <h3 data-translate="services.transfer.title">Airport Transfer</h3>
+                    <p data-translate="services.transfer.desc">Luxury vehicle pickup and drop-off service</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">👨‍🍳</div>
+                    <h3 data-translate="services.chef.title">Private Chef</h3>
+                    <p data-translate="services.chef.desc">Gourmet meals prepared in your villa</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🧹</div>
+                    <h3 data-translate="services.housekeeping.title">Daily Housekeeping</h3>
+                    <p data-translate="services.housekeeping.desc">Professional cleaning and turndown service</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎣</div>
+                    <h3 data-translate="services.activities.title">Activity Planning</h3>
+                    <p data-translate="services.activities.desc">Fishing, golf, spa, and adventure tours</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🧘</div>
+                    <h3 data-translate="services.spa.title">In-Villa Spa</h3>
+                    <p data-translate="services.spa.desc">Private massage and wellness treatments</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎉</div>
+                    <h3 data-translate="services.events.title">Event Planning</h3>
+                    <p data-translate="services.events.desc">Weddings, celebrations, and corporate events</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="booking" id="booking">
+        <div class="container">
+            <div class="booking-content">
+                <div class="booking-text">
+                    <h2 class="section-title" data-translate="booking.title">Reserve Your Luxury Escape</h2>
+                    <p data-translate="booking.subtitle">Contact us directly to check availability and secure your dates</p>
+                </div>
+                <div class="booking-actions">
+                    <a href="https://wa.me/526242175935?text=Hi%20Villa%20Sera%20team!%20I'd%20love%20to%20check%20availability.%20My%20dates%20are%20____%20to%20____%20and%20we%20are%20____%20guests." 
+                       class="btn btn-whatsapp" 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                        <span>💬</span>
+                        <span data-translate="booking.whatsapp">WhatsApp Us</span>
+                    </a>
+                </div>
+                <form class="inquiry-form" id="inquiryForm">
+                    <div class="form-group">
+                        <input type="text" id="name" required data-translate-placeholder="booking.form.name">
+                        <label data-translate="booking.form.name">Full Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" required data-translate-placeholder="booking.form.email">
+                        <label data-translate="booking.form.email">Email</label>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="date" id="checkin" required>
+                            <label data-translate="booking.form.checkin">Check-in</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="date" id="checkout" required>
+                            <label data-translate="booking.form.checkout">Check-out</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" id="guests" min="1" required data-translate-placeholder="booking.form.guests">
+                        <label data-translate="booking.form.guests">Number of Guests</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="4" data-translate-placeholder="booking.form.message"></textarea>
+                        <label data-translate="booking.form.message">Message</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary" data-translate="booking.form.submit">Submit Inquiry</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location" id="location">
+        <div class="container">
+            <h2 class="section-title" data-translate="location.title">Prime Location</h2>
+            <div class="location-content">
+                <div class="location-text">
+                    <p data-translate="location.description">Villa Sera is nestled in the exclusive Villa Serena community of Cabo San Lucas, offering unparalleled access to world-class beaches, championship golf courses, and the vibrant nightlife of downtown Cabo. Just minutes from the marina, fine dining, and luxury shopping.</p>
+                    <div class="location-details">
+                        <p><strong data-translate="location.address.label">Address:</strong> <span data-translate="location.address.value">Villa Serena Community, Cabo San Lucas, BCS, Mexico</span></p>
+                        <p><strong data-translate="location.airport.label">Airport:</strong> <span data-translate="location.airport.value">30 minutes from Los Cabos International Airport</span></p>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <p class="map-privacy" data-translate="location.map.privacy">Exact location shared after booking confirmation.</p>
+                    <div class="map-wrapper">
+                        <iframe 
+                            src="https://www.google.com/maps?q=22.8995556,-109.8600000&hl=en&z=15&output=embed"
+                            width="100%" 
+                            height="450" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            class="google-map"
+                            title="Villa Sera Location">
+                        </iframe>
+                    </div>
+                    <a href="https://www.google.com/maps?q=22.8995556,-109.8600000" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="map-link"
+                       data-translate="location.map.link">View on Google Maps</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <h2 class="section-title" data-translate="reviews.title">Guest Reviews</h2>
+            <p class="section-subtitle" data-translate="reviews.subtitle">What our guests are saying</p>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text" data-translate="reviews.review1.text">"An absolutely stunning property. Every detail was perfect, from the infinity pool to the ocean views. The concierge service exceeded all expectations. We'll definitely be back!"</p>
+                    <p class="review-author" data-translate="reviews.review1.author">— Sarah Mitchell, New York</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text" data-translate="reviews.review2.text">"Villa Sera is pure luxury. The attention to detail, the privacy, and the breathtaking location made our vacation unforgettable. The private chef service was exceptional."</p>
+                    <p class="review-author" data-translate="reviews.review2.author">— James Anderson, Los Angeles</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text" data-translate="reviews.review3.text">"This is the most beautiful vacation rental we've ever stayed in. The villa is immaculate, the views are incredible, and the staff went above and beyond. Highly recommend!"</p>
+                    <p class="review-author" data-translate="reviews.review3.author">— Maria Rodriguez, Miami</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-translate="footer.logo">Villa Sera</h3>
+                    <p data-translate="footer.tagline">Luxury Redefined in Cabo San Lucas</p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-translate="footer.contact.title">Contact</h4>
+                    <p>📧 <a href="mailto:villasera@seraholding.com" data-translate="footer.contact.email">villasera@seraholding.com</a></p>
+                    <p>📱 <a href="https://wa.me/526242175935" target="_blank" rel="noopener noreferrer" data-translate="footer.contact.phone">+52 624 217 5935</a></p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-translate="footer.follow.title">Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook" data-translate="footer.social.facebook">Facebook</a>
+                        <a href="#" aria-label="Instagram" data-translate="footer.social.instagram">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Villa Sera. <span data-translate="footer.rights">All rights reserved.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox for Gallery -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+        <button class="lightbox-prev" id="lightboxPrev" aria-label="Previous">&#8249;</button>
+        <button class="lightbox-next" id="lightboxNext" aria-label="Next">&#8250;</button>
+        <img src="" alt="" id="lightboxImage">
+    </div>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/526242175935?text=Hi%20Villa%20Sera%20team!%20I'd%20love%20to%20check%20availability.%20My%20dates%20are%20____%20to%20____%20and%20we%20are%20____%20guests." 
+       class="floating-whatsapp" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Contact us on WhatsApp">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" fill="currentColor"/>
+        </svg>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
