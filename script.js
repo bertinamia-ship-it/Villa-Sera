@@ -163,16 +163,30 @@ const translations = {
 // Current language (load from localStorage or default to English)
 let currentLang = localStorage.getItem('villaSeraLang') || 'en';
 
-// Helper function to add Cloudinary transformations to URLs
-function optimizeCloudinaryUrl(url) {
-    // If URL already has transformations, return as is
-    if (url.includes('/f_auto,q_auto/') || url.includes('/f_auto/') || url.includes('/q_auto/')) {
-        return url;
+// Cloudinary base URL
+const CLOUDINARY_BASE = 'https://res.cloudinary.com/dpmozdkfh/image/upload';
+
+// Helper function to build optimized Cloudinary URLs
+function buildCloudinaryUrl(path, options = {}) {
+    const { w, dpr } = options;
+    let transformations = 'f_auto,q_auto';
+    
+    if (w) {
+        transformations += `,w_${w}`;
+    }
+    if (dpr) {
+        transformations += `,dpr_auto`;
     }
     
-    // Insert transformations after /upload/
-    return url.replace('/upload/', '/upload/f_auto,q_auto/');
+    return `${CLOUDINARY_BASE}/${transformations}/${path}`;
 }
+
+// Hero image paths
+const HERO_IMAGES = [
+    'v1770690187/exterior_1_lryo0k.jpg',
+    'v1770690187/CasaSergio238_tlx1uh.jpg',
+    'v1770690187/CasaSergio126_sgbiua.jpg'
+];
 
 // Language Toggle Functionality
 function initLanguageToggle() {
@@ -230,13 +244,29 @@ function switchLanguage(lang) {
     document.documentElement.lang = lang;
 }
 
-// Hero Image Rotation
+// Preload hero images
+function preloadHeroImages() {
+    HERO_IMAGES.forEach((path, index) => {
+        const img = new Image();
+        img.src = buildCloudinaryUrl(path, { w: 1920, dpr: true });
+        img.onload = () => {
+            // Set background image once loaded
+            const slide = document.querySelector(`.hero-slide-${index + 1}`);
+            if (slide) {
+                slide.style.backgroundImage = `url('${img.src}')`;
+            }
+        };
+    });
+}
+
+// Hero Image Rotation with smooth crossfade
 function initHeroRotation() {
     const slides = document.querySelectorAll('.hero-slide');
     const indicators = document.querySelectorAll('.indicator');
     let currentSlide = 0;
     const totalSlides = slides.length;
     const rotationInterval = 3000; // 3 seconds
+    let rotationTimer = null;
     
     function showSlide(index) {
         // Remove active class from all slides and indicators
@@ -253,35 +283,38 @@ function initHeroRotation() {
         showSlide(currentSlide);
     }
     
+    // Preload images first
+    preloadHeroImages();
+    
+    // Set initial slide background
+    const firstSlide = document.querySelector('.hero-slide-1');
+    if (firstSlide && !firstSlide.style.backgroundImage) {
+        firstSlide.style.backgroundImage = `url('${buildCloudinaryUrl(HERO_IMAGES[0], { w: 1920, dpr: true })}')`;
+    }
+    
     // Auto-rotate every 3 seconds
-    setInterval(nextSlide, rotationInterval);
+    rotationTimer = setInterval(nextSlide, rotationInterval);
     
     // Click on indicators to jump to specific slide
     indicators.forEach((indicator, index) => {
         indicator.addEventListener('click', () => {
             currentSlide = index;
             showSlide(currentSlide);
+            // Reset timer
+            clearInterval(rotationTimer);
+            rotationTimer = setInterval(nextSlide, rotationInterval);
         });
     });
 }
 
-// Optimize all Cloudinary images
-function optimizeImages() {
-    // Optimize gallery images
-    const galleryImages = document.querySelectorAll('.gallery-item img');
+// Optimize gallery images
+function optimizeGalleryImages() {
+    const galleryImages = document.querySelectorAll('.gallery-item img[data-src]');
     galleryImages.forEach(img => {
-        if (img.src.includes('cloudinary.com')) {
-            img.src = optimizeCloudinaryUrl(img.src);
-        }
-    });
-    
-    // Optimize hero slides (they're already optimized in HTML, but ensure they stay optimized)
-    const heroSlides = document.querySelectorAll('.hero-slide');
-    heroSlides.forEach(slide => {
-        const bgImage = slide.style.backgroundImage;
-        if (bgImage && bgImage.includes('cloudinary.com') && !bgImage.includes('f_auto,q_auto')) {
-            const url = bgImage.match(/url\(['"]?([^'"]+)['"]?\)/)[1];
-            slide.style.backgroundImage = `url('${optimizeCloudinaryUrl(url)}')`;
+        const path = img.getAttribute('data-src');
+        if (path) {
+            img.src = buildCloudinaryUrl(path, { w: 900 });
+            img.removeAttribute('data-src');
         }
     });
 }
@@ -340,7 +373,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Gallery Lightbox
-const galleryItems = document.querySelectorAll('.gallery-item img');
+let galleryItems = [];
 const lightbox = document.getElementById('lightbox');
 const lightboxImage = document.getElementById('lightboxImage');
 const lightboxClose = document.getElementById('lightboxClose');
@@ -350,22 +383,36 @@ const lightboxNext = document.getElementById('lightboxNext');
 let currentImageIndex = 0;
 let images = [];
 
-// Initialize gallery images array with optimized URLs
+// Gallery image paths for lightbox
+const GALLERY_PATHS = [
+    'v1770690261/master_room_1_jvjnau.jpg',
+    'v1770690262/bedroom_2_lozwto.jpg',
+    'v1770690263/bedroom3_f4fvh8.jpg',
+    'v1770690264/bedroom_4_wdr9hq.jpg',
+    'v1770690261/diningroom1_hkoyi9.jpg',
+    'v1770690187/CasaSergio238_tlx1uh.jpg',
+    'v1770690264/bathroom1_qnezwl.jpg',
+    'v1770690263/bathroom_2_zhl3mr.jpg',
+    'v1770690264/closet1_fkpumz.jpg'
+];
+
+// Initialize gallery images array with optimized URLs for lightbox
 function initGalleryImages() {
-    images = Array.from(galleryItems).map(img => {
-        return optimizeCloudinaryUrl(img.src);
+    images = GALLERY_PATHS.map(path => buildCloudinaryUrl(path, { w: 1600 }));
+    
+    // Set up click handlers
+    galleryItems = document.querySelectorAll('.gallery-item img');
+    galleryItems.forEach((img, index) => {
+        img.addEventListener('click', () => {
+            currentImageIndex = index;
+            updateLightboxImage();
+            if (lightbox) {
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        });
     });
 }
-
-// Open lightbox
-galleryItems.forEach((img, index) => {
-    img.addEventListener('click', () => {
-        currentImageIndex = index;
-        updateLightboxImage();
-        lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    });
-});
 
 // Close lightbox
 if (lightboxClose) {
@@ -600,8 +647,8 @@ animatedItems.forEach((item, index) => {
 // Initialize everything when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     initLanguageToggle();
+    optimizeGalleryImages();
     initHeroRotation();
-    optimizeImages();
     initGalleryImages();
     
     // Set minimum date for check-in to today
